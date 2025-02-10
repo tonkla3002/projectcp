@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 
 char board[5][5] = {{' ', ' ', ' ', ' ', ' '},
                     {' ', ' ', ' ', ' ', ' '},
@@ -46,10 +48,28 @@ int main(void){
     boardBack[4][2] = '2';
     boardBack[4][3] = '2';
 
+    srand(time(NULL));   
+    int r1 = rand();    
+    int r2 = rand();     
+    r1 = r1%5;
+    r2 = r2%5;
+    while (board[r1][r2] != ' ')
+    {
+        r1 = rand();    
+        r2 = rand();     
+        r1 = r1%5;
+        r2 = r2%5;
+    }
+
 
     while (start == 1) {
 
         displayBoard();
+        printf("Turn : ");
+        printf("%d\n",turn);
+        if(turn == 4 ){
+            board[r1][r2] = '!';
+        }
         printf("Player %c, select agent\n",player);
 
         printf("Enter the row [1-5]: ");
@@ -132,7 +152,7 @@ void moveAgent(int row,int column, char player) {
                         board[row][column] = ' ';
                         boardBack[row-1][column] = boardBack[row][column];
                         boardBack[row][column] = ' ';
-                        turn++;  
+                          
                     }
                     else if(board[row-1][column] == board[row][column] ){
                         board[row-1][column] = ' ';
@@ -157,7 +177,7 @@ void moveAgent(int row,int column, char player) {
                         board[row][column] = ' ';
                         boardBack[row][column-1] = boardBack[row][column];
                         boardBack[row][column] = ' ';
-                        turn++;    
+                            
                         
                     }
 
@@ -184,7 +204,7 @@ void moveAgent(int row,int column, char player) {
                             board[row][column] = ' ';
                             boardBack[row][column+1] = boardBack[row][column];
                             boardBack[row][column] = ' ';
-                            turn++;      
+                                  
                     }
                     else if(board[row][column+1] == board[row][column] ){
                         board[row][column+1] = ' ';
@@ -209,7 +229,7 @@ void moveAgent(int row,int column, char player) {
                             board[row][column] = ' ';
                             boardBack[row+1][column] = boardBack[row][column];
                             boardBack[row][column] = ' ';
-                            turn++;   
+                               
                     }
 
                     else if(board[row+1][column] == board[row][column] ){
@@ -225,6 +245,7 @@ void moveAgent(int row,int column, char player) {
                     break;
                 
                 }
+                turn++;
         }
 
         else{
@@ -254,7 +275,7 @@ void moveAgentLastOne(int row,int column, char player) {
                         board[row][column] = ' ';
                         boardBack[row-1][column] = boardBack[row][column];
                         boardBack[row][column] = ' ';
-                        turn++;  
+                          
                     }
                     else if(board[row-1][column] == board[row][column] ){
                         board[row-1][column] = ' ';
@@ -279,7 +300,7 @@ void moveAgentLastOne(int row,int column, char player) {
                         board[row][column] = ' ';
                         boardBack[row][column-1] = boardBack[row][column];
                         boardBack[row][column] = ' ';
-                        turn++;    
+                            
                         
                     }
 
@@ -306,7 +327,7 @@ void moveAgentLastOne(int row,int column, char player) {
                             board[row][column] = ' ';
                             boardBack[row][column+1] = boardBack[row][column];
                             boardBack[row][column] = ' ';
-                            turn++;      
+                                  
                     }
                     else if(board[row][column+1] == board[row][column] ){
                         board[row][column+1] = ' ';
@@ -331,7 +352,7 @@ void moveAgentLastOne(int row,int column, char player) {
                             board[row][column] = ' ';
                             boardBack[row+1][column] = boardBack[row][column];
                             boardBack[row][column] = ' ';
-                            turn++;   
+                               
                     }
 
                     else if(board[row+1][column] == board[row][column] ){
@@ -357,7 +378,7 @@ void moveAgentLastOne(int row,int column, char player) {
                         board[row][column] = ' ';
                         boardBack[row-1][column+1] = boardBack[row][column];
                         boardBack[row][column] = ' ';
-                        turn++;  
+                          
                     }
                     else if(board[row-1][column+1] == board[row][column] ){
                         board[row-1][column+1] = ' ';
@@ -382,7 +403,7 @@ void moveAgentLastOne(int row,int column, char player) {
                         board[row][column] = ' ';
                         boardBack[row-1][column-1] = boardBack[row][column];
                         boardBack[row][column] = ' ';
-                        turn++;    
+                            
                         
                     }
 
@@ -409,7 +430,7 @@ void moveAgentLastOne(int row,int column, char player) {
                             board[row][column] = ' ';
                             boardBack[row+1][column+1] = boardBack[row][column];
                             boardBack[row][column] = ' ';
-                            turn++;      
+                                  
                     }
                     else if(board[row+1][column+1] == board[row][column] ){
                         board[row+1][column+1] = ' ';
@@ -434,7 +455,7 @@ void moveAgentLastOne(int row,int column, char player) {
                             board[row][column] = ' ';
                             boardBack[row+1][column-1] = boardBack[row][column];
                             boardBack[row][column] = ' ';
-                            turn++;   
+                               
                     }
 
                     else if(board[row+1][column-1] == board[row][column] ){
@@ -450,6 +471,7 @@ void moveAgentLastOne(int row,int column, char player) {
                     break;
                 
                 }
+                turn++;
         }
 
         else{
