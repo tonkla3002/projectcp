@@ -27,7 +27,6 @@ void moveAgent(int row,int column, char player);
 void checkWin();
 
 void displayBoardBack();
-void checkLastOne();
 void checkSpecialChess();
 void moveAgentLastOne(int row,int column, char player);
 int stopGame();
@@ -35,21 +34,21 @@ int stopGame();
 
 int main(void){
 
-    board[2][2] = 'J';
-    board[2][3] = 'Q';
-    board[2][1] = 'K';
+   board[0][1] = 'J';
+    board[0][2] = 'Q';
+    board[0][3] = 'K';
 
-    board[3][1] = 'J';
-    board[3][2] = 'Q';
-    board[3][3] = 'K';
+    board[4][1] = 'J';
+    board[4][2] = 'Q';
+    board[4][3] = 'K';
 
-    boardBack[2][1] = '1';
-    boardBack[2][3] = '1';
-    boardBack[2][2] = '1';
+    boardBack[0][1] = '1';
+    boardBack[0][3] = '1';
+    boardBack[0][2] = '1';
 
-    boardBack[3][1] = '2';
-    boardBack[3][2] = '2';
-    boardBack[3][3] = '2';
+    boardBack[4][1] = '2';
+    boardBack[4][2] = '2';
+    boardBack[4][3] = '2';
 
     srand(time(NULL));   
     int r1 = rand();    
@@ -60,7 +59,7 @@ int main(void){
 
     while (start == 1) {
         // checkSpecialChess();
-        displayBoardBack();
+        // displayBoardBack();
         displayBoard();
         checkWin();
         //reset count
@@ -316,8 +315,6 @@ void moveAgent(int row,int column, char player) {
             
             }
             turn++;
-
-       
     }
 
     else{
@@ -564,35 +561,19 @@ void  checkWin(){
         }
     }
     if(count1 == 0){
-        printf("checkWin!!!! Plyer 2 WIN !!!!");
+        printf("\n\n\n\n!!!! Plyer 2 WIN !!!!");
         displayBoard();
         displayBoardBack();
         start = 0;
     }
     else if(count2 == 0){
-        printf("checkWin!!!! Plyer 1 WIN !!!!");
+        printf("\n\n\n\n!!!! Plyer 1 WIN !!!!");
         displayBoard();
         displayBoardBack();
         start = 0;
     }
 }
 
-void  checkLastOne(){
-    
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 5; j++) {
-            if (boardBack[i][j] == '1') {
-                count1++;
-            }
-            else if(boardBack[i][j] == '2'){
-                count2++;
-
-            }
-        }
-    }
-    printf("%d",count1);
-    printf("%d",count2);
-}
 
 void checkSpecialChess(){
     char playerSpecial;
@@ -615,22 +596,14 @@ void checkSpecialChess(){
     {
         start = 0;
         stopGame();
-        printf("checkSpecialChess!!!! Plyer 2 WIN !!!!");
+        printf("\n\n\n\n!!!! Plyer 2 WIN !!!!");
     }
     else if (playerSpecial == '2' && count1 == 1)
     {
         start = 0;
         stopGame();
-        printf("checkSpecialChess!!!! Plyer 1 WIN !!!!");
+        printf("\n\n\n\n!!!! Plyer 1 WIN !!!!");
     }
-    printf("Turn\n");
-     printf("%d\n",turn);
-    printf("count1 : ");
-    printf("%d\n",count1);
-    printf("count1 : ");
-    printf("%d\n",count2);
-    printf("start : ");
-    printf("%d\n",start);
 }
 
 int stopGame(){
