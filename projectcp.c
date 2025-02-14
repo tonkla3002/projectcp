@@ -34,7 +34,7 @@ int stopGame();
 
 int main(void){
 
-   board[0][1] = 'J';
+    board[0][1] = 'J';
     board[0][2] = 'Q';
     board[0][3] = 'K';
 
@@ -43,8 +43,8 @@ int main(void){
     board[4][3] = 'K';
 
     boardBack[0][1] = '1';
-    boardBack[0][3] = '1';
     boardBack[0][2] = '1';
+    boardBack[0][3] = '1';
 
     boardBack[4][1] = '2';
     boardBack[4][2] = '2';
@@ -80,7 +80,7 @@ int main(void){
                 r1 = r1%5;
                 r2 = r2%5;
             }
-            board[0][2] = '!';
+            board[r1][r2] = '!';
         }
 
         printf("Player %c, select agent\n",player);
