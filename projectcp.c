@@ -338,7 +338,8 @@ void moveAgentLastOne(int row,int column, char player) {
                     if(board[row-1][column] == ' ' || 
                     (board[row-1][column] == 'K' && board[row][column] == 'J') || 
                     (board[row-1][column] == 'J' && board[row][column] == 'Q') || 
-                    (board[row-1][column] == 'Q' && board[row][column] == 'K')){
+                    (board[row-1][column] == 'Q' && board[row][column] == 'K') ||
+                    (board[row-1][column] != ' ' && board[row][column] == '!')){
                             
                         board[row-1][column] = board[row][column];
                         board[row][column] = ' ';
@@ -363,7 +364,8 @@ void moveAgentLastOne(int row,int column, char player) {
                     if(board[row][column-1] == ' ' || 
                     (board[row][column-1] == 'K' && board[row][column] == 'J') || 
                     (board[row][column-1] == 'J' && board[row][column] == 'Q') || 
-                    (board[row][column-1] == 'Q' && board[row][column] == 'K')){
+                    (board[row][column-1] == 'Q' && board[row][column] == 'K') ||
+                    (board[row][column-1] != ' ' && board[row][column] == '!')){
                         
                         board[row][column-1] = board[row][column];
                         board[row][column] = ' ';
@@ -390,7 +392,8 @@ void moveAgentLastOne(int row,int column, char player) {
                     if(board[row][column+1] == ' ' || 
                     (board[row][column+1] == 'K' && board[row][column] == 'J') || 
                     (board[row][column+1] == 'J' && board[row][column] == 'Q') || 
-                    (board[row][column+1] == 'Q' && board[row][column] == 'K')){
+                    (board[row][column+1] == 'Q' && board[row][column] == 'K') ||
+                    (board[row][column+1] != ' ' && board[row][column] == '!')){
 
                             board[row][column+1] = board[row][column];
                             board[row][column] = ' ';
@@ -415,7 +418,8 @@ void moveAgentLastOne(int row,int column, char player) {
                     if(board[row+1][column] == ' ' || 
                     (board[row+1][column] == 'K' && board[row][column] == 'J') || 
                     (board[row+1][column] == 'J' && board[row][column] == 'Q') || 
-                    (board[row+1][column] == 'Q' && board[row][column] == 'K')){
+                    (board[row+1][column] == 'Q' && board[row][column] == 'K') ||
+                    (board[row+1][column] != ' ' && board[row][column] == '!')){
 
                             board[row+1][column] = board[row][column];
                             board[row][column] = ' ';
@@ -441,7 +445,8 @@ void moveAgentLastOne(int row,int column, char player) {
                     if(board[row-1][column+1] == ' ' || 
                     (board[row-1][column+1] == 'K' && board[row][column] == 'J') || 
                     (board[row-1][column+1] == 'J' && board[row][column] == 'Q') || 
-                    (board[row-1][column+1] == 'Q' && board[row][column] == 'K')){
+                    (board[row-1][column+1] == 'Q' && board[row][column] == 'K') ||
+                    (board[row-1][column+1] != ' ' && board[row][column] == '!')){
                             
                         board[row-1][column+1] = board[row][column];
                         board[row][column] = ' ';
@@ -466,7 +471,8 @@ void moveAgentLastOne(int row,int column, char player) {
                     if(board[row-1][column-1] == ' ' || 
                     (board[row-1][column-1] == 'K' && board[row][column] == 'J') || 
                     (board[row-1][column-1] == 'J' && board[row][column] == 'Q') || 
-                    (board[row-1][column-1] == 'Q' && board[row][column] == 'K')){
+                    (board[row-1][column-1] == 'Q' && board[row][column] == 'K') ||
+                    (board[row-1][column-1] != ' ' && board[row][column] == '!')){
                         
                         board[row-1][column-1] = board[row][column];
                         board[row][column] = ' ';
@@ -493,7 +499,8 @@ void moveAgentLastOne(int row,int column, char player) {
                     if(board[row+1][column+1] == ' ' || 
                     (board[row+1][column+1] == 'K' && board[row][column] == 'J') || 
                     (board[row+1][column+1] == 'J' && board[row][column] == 'Q') || 
-                    (board[row+1][column+1] == 'Q' && board[row][column] == 'K')){
+                    (board[row+1][column+1] == 'Q' && board[row][column] == 'K') ||
+                    (board[row+1][column+1] != ' ' && board[row][column] == '!')){
 
                             board[row+1][column+1] = board[row][column];
                             board[row][column] = ' ';
@@ -518,7 +525,8 @@ void moveAgentLastOne(int row,int column, char player) {
                     if(board[row+1][column-1] == ' ' || 
                     (board[row+1][column-1] == 'K' && board[row][column] == 'J') || 
                     (board[row+1][column-1] == 'J' && board[row][column] == 'Q') || 
-                    (board[row+1][column-1] == 'Q' && board[row][column] == 'K')){
+                    (board[row+1][column-1] == 'Q' && board[row][column] == 'K') ||
+                    (board[row+1][column-1] != ' ' && board[row][column] == '!')){
 
                             board[row+1][column-1] = board[row][column];
                             board[row][column] = ' ';
