@@ -61,14 +61,13 @@ int main(void){
         checkSpecialChess();
         displayBoardBack();
         displayBoard();
+        
         checkWin();
         //reset count
-        count1 = 0;
-        count2 = 0;
+        
         checkSpecialChess();
         //reset count
-        count1 = 0;
-        count2 = 0;
+        
 
         // printf("Turn : ");
        
@@ -101,13 +100,11 @@ int main(void){
             moveAgent(row-1,column-1,player);
         }
         //reset count
-        count1 = 0;
-        count2 = 0;
+        
         checkSpecialChess();
 
         //reset count
-        count1 = 0;
-        count2 = 0;
+        
 
         if(player == '2'){
             player = '1';
@@ -558,6 +555,8 @@ void moveAgentLastOne(int row,int column, char player) {
 
 
 void  checkWin(){
+    count1 = 0;
+    count2 = 0;
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
             if (boardBack[i][j] == '1' ) {
@@ -571,19 +570,23 @@ void  checkWin(){
     if(count1 == 0){
         printf("\n\n\n\n!!!! Plyer 2 WIN !!!!");
         displayBoard();
-        displayBoardBack();
+        // displayBoardBack();
         start = 0;
     }
     else if(count2 == 0){
         printf("\n\n\n\n!!!! Plyer 1 WIN !!!!");
         displayBoard();
-        displayBoardBack();
+        // displayBoardBack();
         start = 0;
     }
+    count1 = 0;
+    count2 = 0;
 }
 
 
 void checkSpecialChess(){
+    count1 = 0;
+    count2 = 0;
     char playerSpecial;
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
@@ -604,14 +607,20 @@ void checkSpecialChess(){
     {
         start = 0;
         stopGame();
+        displayBoard();
+        // displayBoardBack();
         printf("\n\n\n\n!!!! Plyer 2 WIN !!!!");
     }
-    else if (playerSpecial == '2' && count1 == 1)
+    else if (playerSpecial == '2' && count2 == 1)
     {
         start = 0;
         stopGame();
+        displayBoard();
+        // displayBoardBack();
         printf("\n\n\n\n!!!! Plyer 1 WIN !!!!");
     }
+    count1 = 0;
+    count2 = 0;
 }
 
 int stopGame(){
