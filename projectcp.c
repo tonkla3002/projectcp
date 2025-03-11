@@ -58,8 +58,8 @@ int main(void){
     
 
     while (start == 1) {
-        // checkSpecialChess();
-        // displayBoardBack();
+        checkSpecialChess();
+        displayBoardBack();
         displayBoard();
         checkWin();
         //reset count
